@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">全局圆角</string>
+    <string name="settings">配置</string>    
+    <string name="radius">圆角弧度</string>
+
+</resources>
