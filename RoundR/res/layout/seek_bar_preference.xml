@@ -7,11 +7,11 @@
     android:paddingLeft="8dp"
     android:paddingRight="8dp"
     android:paddingTop="6dp" >
-
     <TextView
         android:id="@android:id/title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
+        android:paddingLeft="3dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:textAppearance="?android:attr/textAppearanceMedium" >
@@ -33,6 +33,8 @@
         android:id="@+id/seekBarPrefValue"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingRight="20dp"
+        android:textSize="19sp"
         android:layout_alignBottom="@android:id/title"
         android:layout_alignParentTop="true"
         android:layout_alignRight="@android:id/title"

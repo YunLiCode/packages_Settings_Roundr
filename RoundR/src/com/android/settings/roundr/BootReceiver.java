@@ -1,4 +1,4 @@
-package com.android.setting.roundr;
+package com.android.settings.roundr;
 
 /**
  * Copyright 2013 Mohammad Adib
@@ -23,16 +23,6 @@ import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 
 public class BootReceiver extends BroadcastReceiver {
-
-	/**
-	 * Simple receiver that fires upon turning on the device
-	 * 
-	 * @author Mohammad Adib <m.a.adib96@gmail.com>
-	 * 
-	 *         Contributors: Mark Wei
-	 * 
-	 */
-
 	public static boolean boot_up = false;
 
 	boolean boot = false;
@@ -40,6 +30,8 @@ public class BootReceiver extends BroadcastReceiver {
 	@Override
 	public void onReceive(Context context, Intent intent) {
 		boot_up = true;
+		LightsController lc = new LightsController();
+		lc.lockOnButtonBkLight();
 		SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
 		boot = prefs.getBoolean("start_on_boot", true);
 		if (boot) {

@@ -38,6 +38,8 @@ int string close 0x7f070002
 int string corner 0x7f070003
 int string hide 0x7f070001
 int string maximize 0x7f070004
+int string pref_lock_on_key 0x7f070008
+int string pref_lock_on_title 0x7f070009
 int string radius 0x7f070007
 int string settings 0x7f070006
 int string window_icon 0x7f070000

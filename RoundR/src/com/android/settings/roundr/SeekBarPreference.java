@@ -1,4 +1,4 @@
-package com.android.setting.roundr;
+package com.android.settings.roundr;
 
 import wei.mark.standout.StandOutWindow;
 import android.content.Context;
@@ -22,9 +22,9 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 
 	private static final String ANDROIDNS = "http://schemas.android.com/apk/res/android";
 	private static final String ROUNDRNS = "roundrprefs";
-	private static final int DEFAULT_VALUE = 50;
+	private static final int DEFAULT_VALUE = 20;
 
-	private int mMaxValue = 100;
+	private int mMaxValue = 50;
 	private int mMinValue = 0;
 	private int mInterval = 1;
 	private int mCurrentValue;
@@ -54,7 +54,7 @@ public class SeekBarPreference extends Preference implements OnSeekBarChangeList
 	}
 
 	private void setValuesFromXml(AttributeSet attrs) {
-		mMaxValue = attrs.getAttributeIntValue(ANDROIDNS, "max", 100);
+		mMaxValue = attrs.getAttributeIntValue(ANDROIDNS, "max", 50);
 		mMinValue = attrs.getAttributeIntValue(ROUNDRNS, "min", 0);
 
 		mUnitsLeft = getAttributeStringValue(attrs, ROUNDRNS, "unitsLeft", "");

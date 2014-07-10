@@ -4,5 +4,6 @@
     <string name="app_name">全局圆角</string>
     <string name="settings">配置</string>    
     <string name="radius">圆角弧度</string>
-
+    <string name="pref_lock_on_key">pref_lock_on_key</string>
+    <string name="pref_lock_on_title">Lock on bklight</string>
 </resources>

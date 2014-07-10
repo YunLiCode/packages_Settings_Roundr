@@ -1,4 +1,4 @@
-package com.android.setting.roundr;
+package com.android.settings.roundr;
 
 /**
  * Copyright 2013 Mohammad Adib
@@ -26,14 +26,7 @@ import android.preference.PreferenceManager;
 
 public class MainActivity extends Activity {
 
-	/**
-	 * Main Activity that launches the 4 floating windows (corners)
-	 * 
-	 * @author Mohammad Adib <m.a.adib96@gmail.com>
-	 * 
-	 *         Contributors: Mark Wei
-	 * 
-	 */
+
 
 	ProgressDialog progress;
 

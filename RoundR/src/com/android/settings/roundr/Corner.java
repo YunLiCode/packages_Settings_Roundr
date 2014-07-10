@@ -1,4 +1,4 @@
-package com.android.setting.roundr;
+package com.android.settings.roundr;
 
 /**
  * Copyright 2013 Mohammad Adib
@@ -20,51 +20,35 @@ import wei.mark.standout.StandOutWindow;
 import wei.mark.standout.constants.StandOutFlags;
 import wei.mark.standout.ui.Window;
 import android.annotation.SuppressLint;
-import android.app.Notification;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.Build;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
-import android.widget.RemoteViews;
 
 public class Corner extends StandOutWindow {
 
-	/**
-	 * The individual floating window that sits at one of the corners of the
-	 * screen. Window ID corresponds to which corner this goes to.
-	 * 
-	 * @author Mohammad Adib <m.a.adib96@gmail.com>
-	 * 
-	 *         Contributors: Mark Wei, Jan Metten
-	 * 
-	 */
 
 	public static final String ACTION_SETTINGS = "SETTINGS";
 	public static final String BCAST_CONFIGCHANGED = "android.intent.action.CONFIGURATION_CHANGED";
 	public static final int UPDATE_CODE = 2;
-	public static final int NOTIFICATION_CODE = 3;
+	//public static final int NOTIFICATION_CODE = 3;
 	public static final int wildcard = 0;
 	private SharedPreferences prefs;
 	public static boolean running = false;
 
-	@Override
-	public String getAppName() {
-		return "RoundR";
-	}
+	//@Override
+	//public String getAppName() {
+	//	return "RoundR";
+	//}
 
-	@Override
-	public int getAppIcon() {
-		return R.drawable.bottomleft;
-	}
+	//@Override
+	//public int getAppIcon() {
+	//	return R.drawable.bottomleft;
+	//}
 
 	@Override
 	public void createAndAttachView(int corner, FrameLayout frame) {
@@ -121,24 +105,24 @@ public class Corner extends StandOutWindow {
 		return super.getFlags(corner) | StandOutFlags.FLAG_WINDOW_FOCUSABLE_DISABLE | StandOutFlags.FLAG_WINDOW_EDGE_LIMITS_ENABLE;
 	}
 
-	@Override
-	public String getPersistentNotificationMessage(int corner) {
-		return "Tap to configure";
-	}
+	//@Override
+	//public String getPersistentNotificationMessage(int corner) {
+	//	return "Tap to configure";
+	//}
 
-	@Override
-	public Intent getPersistentNotificationIntent(int corner) {
-		return new Intent(this, Corner.class).putExtra("id", corner).setAction(ACTION_SETTINGS);
-	}
+	//@Override
+	//public Intent getPersistentNotificationIntent(int corner) {
+	//	return new Intent(this, Corner.class).putExtra("id", corner).setAction(ACTION_SETTINGS);
+	//}
 
 	@Override
 	public int onStartCommand(Intent intent, int flags, int startId) {
 		if (intent != null) {
 			String action = intent.getAction();
 			int corner = intent.getIntExtra("id", DEFAULT_ID);
-			if (corner == ONGOING_NOTIFICATION_ID) {
-				throw new RuntimeException("ID cannot equals StandOutWindow.ONGOING_NOTIFICATION_ID");
-			}
+			//if (corner == ONGOING_NOTIFICATION_ID) {
+			//	throw new RuntimeException("ID cannot equals StandOutWindow.ONGOING_NOTIFICATION_ID");
+			//}
 
 			if (ACTION_SHOW.equals(action) || ACTION_RESTORE.equals(action)) {
 				show(corner);
@@ -176,15 +160,14 @@ public class Corner extends StandOutWindow {
 		return false;
 	}
 
-	@Override
-	public String getPersistentNotificationTitle(int corner) {
-		return "Rounded Corners";
-	}
+	//@Override
+	//public String getPersistentNotificationTitle(int corner) {
+	//	return "Rounded Corners";
+	//}
 
 	@SuppressLint({ "InlinedApi", "NewApi" })
 	@SuppressWarnings("deprecation")
-	@Override
-	public Notification getPersistentNotification(int id) {
+	/*public Notification getPersistentNotification(int id) {
 		int icon = getAppIcon();
 		long when = System.currentTimeMillis();
 		Context c = getApplicationContext();
@@ -208,7 +191,7 @@ public class Corner extends StandOutWindow {
 		notification.setLatestEventInfo(c, contentTitle, contentText, contentIntent);
 
 		return notification;
-	}
+	}*/
 
 	@Override
 	public boolean onShow(final int corner, final Window window) {
@@ -225,7 +208,7 @@ public class Corner extends StandOutWindow {
 			updateViewLayout(2, getParams(2, window));
 			updateViewLayout(1, getParams(1, window));
 			updateViewLayout(0, getParams(0, window));
-		} else if (requestCode == NOTIFICATION_CODE) {
+		} /*else if (requestCode == NOTIFICATION_CODE) {
 			if (!prefs.getBoolean("notification", true)) {
 				// Hide Notification Icon (for <= Gingerbread devices only)
 				NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
@@ -238,6 +221,18 @@ public class Corner extends StandOutWindow {
 				Notification notification = getPersistentNotification(corner);
 				mNotificationManager.notify(getClass().hashCode() + ONGOING_NOTIFICATION_ID, notification);
 			}
-		}
+		}*/
+	}
+
+	@Override
+	public String getAppName() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getAppIcon() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
